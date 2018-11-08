@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            transform-style: preserve-3d;
+        }
+        .all{
+            width: 200px;
+            height: 200px;
+            margin: 100px auto;
+            position: relative;
+            transition: all 4s;
+            transform-style: preserve-3d;
+            transform: rotateX(30deg) rotateY(30deg);
+            /*perspective: 1000px;*/
+        }
+        .all img{
+            width: 200px;
+            height: 200px;
+            vertical-align: middle;
+            position: absolute;
+            top: 0;
+            left: 0;
+            /*transform: rotate();*/
+            /*transform: translate;*/
+        }
+        .active{
+            transform: rotateX(750deg) rotateY(750deg)
+        }
+    </style>
+</head>
+<body>
+<div class="all">
+    <img src="./3D/1.jpg" >
+    <img src="./3D/2.jpg" >
+    <img src="./3D/3.jpg" >
+    <img src="./3D/4.jpg" >
+    <img src="./3D/5.jpg" >
+    <img src="./3D/6.jpg" >
+</div>
+</body>
+<script src="jQuery.js"></script>
+<script>
+    // $('.all').mouseover(function () {
+    //     $(this).addClass('active')
+    // }).mouseleave(function () {
+    //     $(this).removeClass('active')
+    // })
+
+    let xDeg = 0
+    let yDeg = 0
+    $('html').mousedown(function (e) {
+        let clientX = e.originalEvent.clientX/10
+        let clientY = e.originalEvent.clientY/10
+        $(this).mousemove(function (g) {
+            let newclientX = g.originalEvent.clientX/10
+            let newclientY = g.originalEvent.clientY/10
+
+            xDeg += newclientX - clientX
+            yDeg += newclientY - clientY
+
+            $('.all').css({
+                transform: `rotateX(${-Math.round(yDeg)}deg) rotateY(${Math.round(xDeg)}deg)`
+            })
+        })
+    }).mouseup(function () {
+        $(this).off('mousemove')
+    })
+
+
+    $('img').eq(5).css({
+        transform:'translateX(-100px) rotateY(90deg) ',
+    })
+
+    $('img').eq(4).css({
+        transform:'translateX(100px) rotateY(-90deg) ',
+    })
+    $('img').eq(3).css({
+        transform:'translateY(-100px) rotateX(90deg) ',
+    })
+    $('img').eq(2).css({
+        transform:'translateY(100px) rotateX(-90deg) ',
+    })
+    $('img').eq(1).css({
+        transform:'translateZ(100px) ',
+    })
+    $('img').eq(0).css({
+        transform:'translateZ(-100px) rotateY(-180deg)',
+    })
+</script>
+</html>

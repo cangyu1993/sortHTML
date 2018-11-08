@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_906102_5e5bzz5vx7q.css">
+    <style>
+        .box{
+            width: 200px;
+            height: 80px;
+            margin: 100px 0;
+            background-color: deepskyblue;
+        }
+        .iconfont{
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div class="box"></div>
+<button>动起来</button>
+<button>停止</button>
+<button>--心--</button>
+<i class="iconfont icon-heart"></i>
+</body>
+<script src="jQuery.js"></script>
+<script>
+    $('button').eq(0).click(function g() {
+        $('.box').animate({
+            width:1000,
+        },2000,'swing',function () {
+            $('.box').animate({
+                width:200
+            },1000,'swing',g())
+        })
+    })
+
+    $('button').eq(1).click(function () {
+        $('.box').stop()
+    })
+
+    $('button').eq(2).click(function f() {
+       $('i').eq(0).animate({
+           fontSize:400,
+       },2000,'swing',function () {
+           $('i').animate({
+               fontSize:10
+           },1000,'swing',f())
+       })
+    })
+</script>
+</html>

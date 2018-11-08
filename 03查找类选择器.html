@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .bar{
+            display: flex;
+            justify-content: flex-start;
+            list-style: none;
+            cursor: pointer;
+        }
+        .bar li{
+            width: 40px;
+            height: 20px;
+            border: 1px solid red;
+            text-align: center;
+            padding: 10px 20px;
+        }
+        .active{
+            background-color: skyblue;
+        }
+        .content{
+            list-style: none;
+        }
+        .active01{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+      <ul class="bar">
+          <li class="active">资讯</li>
+          <li>新闻</li>
+          <li>体育</li>
+      </ul>
+
+      <ul  class="content">
+          <li>6666666666</li>
+          <li class="active01">77777777</li>
+          <li class="active01">88888888</li>
+      </ul>
+</body>
+<script src="jQuery.js"></script>
+<script>
+    $('.bar li').mouseover(function () {
+        let index = $('.bar li').index(this)
+        $(this).addClass('active').siblings().removeClass('active')
+        $('.content li').eq(index).removeClass('active01').siblings().addClass('active01')
+    })
+</script>
+</html>

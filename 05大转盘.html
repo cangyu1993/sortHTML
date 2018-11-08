@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .imgs {
+            margin: 0 auto;
+            display: flex;
+        }
+
+        .imgs .turntable {
+            position: relative;
+        }
+
+        .imgs .turn {
+            position: absolute;
+            top: 66px;
+            left: 124px;
+            transition:transform 1s ease;
+        }
+        .imgs .pointer{
+            position: absolute;
+            top: 166px;
+            left: 267px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="imgs">
+    <img src="./imgs/turntable-bg.jpg" class="turntable">
+    <img src="./imgs/turntable.png" class="turn">
+    <img src="./imgs/pointer.png" class="pointer">
+</div>
+</body>
+<script src="jQuery.js"></script>
+<script>
+
+
+    let sum = 0
+    $('.pointer').click(function () {
+        let arr = [0, 51, 102, 153, 205, 256, 307];
+        let Deg = Math.ceil(Math.random()*6)
+        sum +=  arr[Deg] + 720
+
+        console.log(sum)
+        $('.imgs .turn').css({
+            transform: `rotateZ(${sum}deg)`
+        })
+    })
+</script>
+</html>

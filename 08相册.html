@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            position: relative;
+            transform-style: preserve-3d;
+            transition: all 3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+            margin: 100px auto;
+            transform-style: preserve-3d;
+            transform: rotateX(-10deg) rotateY(-10deg);
+            position: relative;
+        }
+
+        ul li img {
+            width: 500px;
+            height: 300px;
+            vertical-align: middle;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+
+<ul>
+    <li>
+        <img src="./imgss/0.jpg">
+    </li>
+    <li>
+        <img src="./imgss/1.jpg">
+    </li>
+    <li>
+        <img src="./imgss/3.jpg">
+    </li>
+    <li>
+        <img src="./imgss/4.jpg">
+    </li>
+</ul>
+
+
+</body>
+<script src="jQuery.js"></script>
+<script>
+    $('ul li img').eq(3).css({
+        transform: 'rotateY(90deg)'
+    })
+    $('ul li img').eq(2).css({
+        transform: 'rotateY(-90deg)'
+    })
+    $('ul li img').eq(1).css({
+        transform: 'translateZ(250px)'
+    })
+    $('ul li img').eq(0).css({
+        transform: 'translateZ(-250px) rotateY(180deg)'
+    })
+
+    let sum = 0
+    $('ul').click(function () {
+        sum += 60
+        $(this).css({
+            transform: `rotateY(${sum}deg)`
+        })
+    })
+</script>
+</html>

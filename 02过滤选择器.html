@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box box1"></div>
+<div class="box"></div>
+<div class="box"></div>
+<button class="btn">安谧</button>
+</body>
+<script src="jQuery.js"></script>
+<script>
+    // $('.box:eq(0)').css({
+    //     width:100,
+    //     height:100,
+    //     border:'3px solid red',
+    //     backgroundColor:'skyblue'
+    // })
+
+    // $('.box').css({
+    //     width:100,
+    //     height:100,
+    // })
+    //
+    // $('.box:not(.box1)').css({
+    //         width:100,
+    //         height:100,
+    //         border:'3px solid red',
+    //         backgroundColor:'skyblue'
+    // })
+
+    $('.box').css({
+        width:100,
+        height:100,
+        backgroundColor:'skyblue',
+        border:"1px solid red"
+    })
+
+    $('.btn').click(function () {
+        $('.box:eq(2)').animate({
+            width:400,
+        },4000)
+    })
+</script>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .all {
+            width: 600px;
+            height: 600px;
+            margin: 0 auto;
+            position: relative;
+            background-color: skyblue;
+            transition: all;
+            transform-style: preserve-3d;
+        }
+
+        .all .ball {
+            width: 60px;
+            height: 60px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 50%;
+            background: radial-gradient(#fff 5%, #000 95%);
+        }
+    </style>
+</head>
+<body>
+<div class="all">
+    <div class="ball"></div>
+</div>
+</body>
+<script src="jQuery.js"></script>
+<script>
+    let xLength = 0
+    let yLength = 0
+    setInterval(() => {
+        if (0<xLength<540) {
+            xLength =xLength + 1
+        }else {
+            xLength =xLength - 1
+        }
+        if (0<yLength<540) {
+            yLength =yLength + 1
+        }else {
+            yLength =yLength - 1
+        }
+        console.log(xLength,yLength)
+        $('.ball').css({
+            transform:`translateX(${xLength}px) translateY(${yLength}px)`
+        })
+    }, 16)
+
+</script>
+</html>

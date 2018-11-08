@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 150px;
+            height: 150px;
+            margin: 10px auto;
+            background-color: #ff0000;
+        }
+    </style>
+</head>
+<body>
+  <div class="box"></div>
+  <button>显示</button>
+  <button>隐藏</button>
+  <button>切换</button>
+  <button>向上滑动隐藏</button>
+  <button>向下滑动隐藏</button>
+  <button>切换滑动隐藏</button>
+  <button>淡入</button>
+
+</body>
+<script src="jQuery.js"></script>
+<script>
+    $('button:eq(0)').click(function () {
+        $('.box').show(2000)
+    })
+    $('button:eq(1)').click(function () {
+        $('.box').hide(2000)
+    })
+    $('button:eq(2)').click(function () {
+        $('.box').toggle(2000)
+    })
+    $('button').eq(3).click(function () {
+        $('.box').slideUp(2000,'swing')
+    })
+    $('button').eq(4).click(function () {
+        $('.box').slideDown(2000,'swing')
+    })
+    $('button').eq(5).click(function () {
+        $('.box').slideToggle(2000,'swing')
+    })
+    $('button').eq(6).click(function () {
+        $('.box').fadeOut(2000,'swing')
+    })
+</script>
+</html>

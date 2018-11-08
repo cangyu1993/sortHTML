@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+            width: 100px;
+            position: fixed;
+            top: 0;
+            left: -100px;
+            z-index: 998;
+            transition: 1s ease;
+        }
+        .active02{
+            transform: translateX(120px);
+        }
+        .active{
+            background-color: #cccccc;
+        }
+        .active1{
+            background-color: #f00;
+        }
+        .btn{
+            margin-top: 120px;
+        }
+    </style>
+</head>
+<body>
+   <ul>
+       <li>IG</li>
+       <li>IG</li>
+       <li>IG</li>
+       <li>IG</li>
+       <li>IG</li>
+   </ul>
+<button class="btn">按钮</button>
+</body>
+<script src="jQuery.js"></script>
+<script>
+    $('ul li:nth-child(odd)').addClass('active')
+    $('.btn').click(function () {
+        $('ul li:nth-child(even)').toggleClass('active1')
+        $(this).toggleClass('active')
+        $('ul').toggleClass('active02')
+    })
+</script>
+</html>
